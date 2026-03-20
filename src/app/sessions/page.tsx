@@ -14,7 +14,7 @@ export default function SessionsPage() {
           <Link
             key={session.id}
             href={`/sessions/${session.id}`}
-            className="block bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 p-4 active:bg-gray-50 dark:active:bg-gray-800 transition-colors"
+            className="block bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 p-4 active:bg-gray-50 dark:active:bg-gray-800 active:scale-[0.98] transition-all"
           >
             <div className="flex items-start justify-between gap-2">
               <div className="flex-1 min-w-0">

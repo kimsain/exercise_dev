@@ -1,4 +1,5 @@
 import type { FormCue } from '@/lib/types';
+import { CheckCircle2, XCircle } from 'lucide-react';
 
 interface Props {
   cues: FormCue[];
@@ -21,7 +22,7 @@ export default function FormCueList({ cues }: Props) {
                 key={i}
                 className="flex items-start gap-2 bg-green-50 dark:bg-green-950 rounded-lg px-3 py-2"
               >
-                <span className="text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5">✅</span>
+                <CheckCircle2 className="w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
                 <span className="text-sm text-green-800 dark:text-green-200">{cue.text}</span>
               </li>
             ))}
@@ -39,7 +40,7 @@ export default function FormCueList({ cues }: Props) {
                 key={i}
                 className="flex items-start gap-2 bg-red-50 dark:bg-red-950 rounded-lg px-3 py-2"
               >
-                <span className="text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5">❌</span>
+                <XCircle className="w-4 h-4 text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" />
                 <span className="text-sm text-red-800 dark:text-red-200">{cue.text}</span>
               </li>
             ))}

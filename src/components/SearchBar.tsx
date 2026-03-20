@@ -1,12 +1,17 @@
 'use client';
 
+import { useComposition } from '@/hooks/useComposition';
+
 interface Props {
   value: string;
   onChange: (value: string) => void;
   placeholder?: string;
+  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>, isComposing: () => boolean) => void;
 }
 
-export default function SearchBar({ value, onChange, placeholder = '운동 검색...' }: Props) {
+export default function SearchBar({ value, onChange, placeholder = '운동 검색...', onKeyDown }: Props) {
+  const { onCompositionStart, onCompositionEnd, isComposing } = useComposition();
+
   return (
     <div className="relative flex items-center">
       <span className="absolute left-3 text-gray-400 pointer-events-none">
@@ -29,6 +34,9 @@ export default function SearchBar({ value, onChange, placeholder = '운동 검�
         type="search"
         value={value}
         onChange={(e) => onChange(e.target.value)}
+        onCompositionStart={onCompositionStart}
+        onCompositionEnd={onCompositionEnd}
+        onKeyDown={onKeyDown ? (e) => onKeyDown(e, isComposing) : undefined}
         placeholder={placeholder}
         className="w-full min-h-[48px] pl-10 pr-10 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400"
       />

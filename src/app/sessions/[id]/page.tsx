@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { sessions } from '@/data/sessions';
 import { exercises } from '@/data/exercises';
+import { AlertTriangle, ArrowLeft } from 'lucide-react';
 
 export function generateStaticParams() {
   return sessions.map((s) => ({ id: String(s.id) }));
@@ -18,6 +19,10 @@ export default async function SessionDetailPage({
 
   return (
     <div className="px-4 py-4 space-y-5">
+      <Link href="/sessions" className="inline-flex items-center gap-1 text-sm text-blue-600 dark:text-blue-400 hover:underline mb-1">
+        <ArrowLeft className="w-4 h-4" />
+        세션 목록
+      </Link>
       {/* Header */}
       <div>
         <div className="flex items-center gap-2 mb-1">
@@ -36,7 +41,7 @@ export default async function SessionDetailPage({
       {session.isIncomplete && (
         <div className="bg-yellow-50 dark:bg-yellow-950 border border-yellow-300 dark:border-yellow-700 rounded-xl p-3">
           <p className="text-sm text-yellow-800 dark:text-yellow-200">
-            ⚠️ 이 세션의 내용이 불완전하게 저장되었습니다.
+            <AlertTriangle className="w-4 h-4 inline mr-1" /> 이 세션의 내용이 불완전하게 저장되었습니다.
           </p>
         </div>
       )}

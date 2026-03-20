@@ -1,5 +1,6 @@
 import { healthProfile } from '@/data/health-profile';
 import type { HealthCondition } from '@/lib/types';
+import { AlertTriangle, AlertCircle } from 'lucide-react';
 
 const severityConfig: Record<HealthCondition['severity'], { label: string; className: string }> = {
   critical: { label: '중요', className: 'bg-red-100 dark:bg-red-950 text-red-700 dark:text-red-300 border-red-300 dark:border-red-700' },
@@ -18,7 +19,7 @@ export default function HealthPage() {
       {/* Emergency note */}
       <div className="bg-red-50 dark:bg-red-950 border-2 border-red-400 dark:border-red-600 rounded-xl p-4">
         <p className="text-sm font-bold text-red-800 dark:text-red-200">
-          🚨 증상 발생 시 즉시 운동 중단 후 응급실 방문
+          <AlertTriangle className="w-4 h-4 inline mr-1" /> 증상 발생 시 즉시 운동 중단 후 응급실 방문
         </p>
       </div>
 
@@ -60,7 +61,7 @@ export default function HealthPage() {
               key={i}
               className="flex items-center gap-3 bg-red-50 dark:bg-red-950 rounded-xl px-4 py-3 border border-red-200 dark:border-red-800"
             >
-              <span className="text-red-500 flex-shrink-0">🔴</span>
+              <span className="text-red-500 flex-shrink-0 flex-shrink-0"><AlertCircle className="w-4 h-4" /></span>
               <span className="text-sm text-red-800 dark:text-red-200">{symptom}</span>
             </li>
           ))}

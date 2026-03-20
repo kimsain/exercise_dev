@@ -32,13 +32,13 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="운동노트" />
       </head>
       <body className="min-h-full flex flex-col antialiased font-sans">
-        <header className="sticky top-0 z-40 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+        <header className="sticky top-0 z-40 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700">
           <div className="flex items-center justify-between px-4 h-12">
             <h1 className="text-base font-bold text-gray-900 dark:text-gray-100">운동 노트</h1>
             <HealthChip />
           </div>
         </header>
-        <main className="flex-1 pb-20">{children}</main>
+        <main className="flex-1 pb-20"><div className="max-w-[680px] mx-auto">{children}</div></main>
         <Navigation />
       </body>
     </html>

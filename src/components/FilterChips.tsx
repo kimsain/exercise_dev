@@ -1,23 +1,15 @@
 'use client';
 import type { BodyPart, Position } from '@/lib/types';
+import { bodyPartLabels, positionLabels } from '@/lib/types';
 
 const bodyPartOptions: { value: BodyPart | 'all'; label: string }[] = [
   { value: 'all', label: '전체' },
-  { value: 'shoulder', label: '어깨' },
-  { value: 'back', label: '등' },
-  { value: 'chest', label: '가슴' },
-  { value: 'arms', label: '팔' },
-  { value: 'legs', label: '하체' },
-  { value: 'fullbody', label: '전신' },
-  { value: 'core', label: '코어' },
-  { value: 'stretching', label: '스트레칭' },
+  ...Object.entries(bodyPartLabels).map(([value, label]) => ({ value: value as BodyPart, label })),
 ];
 
 const positionOptions: { value: Position | 'all'; label: string }[] = [
   { value: 'all', label: '전체' },
-  { value: 'floor', label: '바닥' },
-  { value: 'seated', label: '앉기' },
-  { value: 'standing', label: '서기' },
+  ...Object.entries(positionLabels).map(([value, label]) => ({ value: value as Position, label })),
 ];
 
 interface Props {
